@@ -23,3 +23,9 @@ $(aws ecr get-login --no-include-email --region us-east-2)
 # update latest version
 docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE}
 docker push ${TARGET_IMAGE}
+
+aws ecs update-service \
+  --cluster my-cluster-name \
+  --service web \
+  --task-definition test \
+  --force-new-deployment
