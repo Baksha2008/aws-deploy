@@ -27,12 +27,13 @@ aws configure set default.region ${EB_REGION}
 # I'm speculating it obtains temporary access token
 # it expects aws access key and secret set
 # in environmental vars
-$(aws ecr get-login --no-include-email)
+$(aws ecr get-login --no-include-email --region us-east-2)
+
 
 # update latest version
-docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}
-docker push ${TARGET_IMAGE_LATEST}
+# docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}
+# docker push ${TARGET_IMAGE_LATEST}
 
 # # push new version
-# docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_VERSIONED}
-# docker push ${TARGET_IMAGE_VERSIONED}
+docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_VERSIONED}
+docker push ${TARGET_IMAGE_VERSIONED}
