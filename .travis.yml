@@ -6,17 +6,15 @@ services:
 - docker
 env:
   global:
-  - DOCKER_REPO=test
   - EB_REGION="eu-west-2"
   - secure: $AWS_ACCOUNT_ID
   - secure: $AWS_ACCESS_KEY_ID
   - secure: $AWS_SECRET_ACCESS_KEY
 before_install:
-- pip -v
 - pip install awscli --upgrade --user
 - export PATH=$PATH:$HOME/.local/bin
 script:
-- docker build -t $DOCKER_REPO .
+- docker build -t test:latest .
 deploy:
   provider: script
   script: bash docker_push.sh
