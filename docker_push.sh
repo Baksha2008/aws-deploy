@@ -12,6 +12,9 @@ TARGET_IMAGE="${REGISTRY_URL}/test:latest"
 # making sure correct region is set
 aws configure set default.region ${EB_REGION}
 
+aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+
 # Push image to ECR
 ###################
 
@@ -19,6 +22,8 @@ aws configure set default.region ${EB_REGION}
 # it expects aws access key and secret set
 # in environmental vars
 $(aws ecr get-login --no-include-email --region us-east-2)
+
+
 
 
 # update latest version
