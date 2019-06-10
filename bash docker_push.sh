@@ -31,9 +31,5 @@ $(aws ecr get-login --no-include-email --region us-east-2)
 
 
 # update latest version
-# docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}
-# docker push ${TARGET_IMAGE_LATEST}
-
-# # push new version
-docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_VERSIONED}
-docker push ${TARGET_IMAGE_VERSIONED}
+docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}
+docker push ${TARGET_IMAGE_LATEST}
