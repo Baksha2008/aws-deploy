@@ -12,7 +12,8 @@ env:
   - secure: $AWS_ACCESS_KEY_ID
   - secure: $AWS_SECRET_ACCESS_KEY
 before_install:
-- pip3 install awscli --upgrade --user
+- pip -v
+- pip install awscli --upgrade --user
 - export PATH=$PATH:$HOME/.local/bin
 script:
 - docker build -t $DOCKER_REPO .
