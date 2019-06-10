@@ -12,6 +12,7 @@ env:
   - secure: $AWS_ACCESS_KEY_ID
   - secure: $AWS_SECRET_ACCESS_KEY
 before_install:
+- pip install --upgrade pip
 - pip install awscli
 - export PATH=$PATH:$HOME/.local/bin
 script:
