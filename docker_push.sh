@@ -4,6 +4,8 @@ REGISTRY_URL=${AWS_ACCOUNT_ID}.dkr.ecr.us-east-2.amazonaws.com
 SOURCE_IMAGE="test:latest"
 TARGET_IMAGE="${REGISTRY_URL}/test:latest"
 
+aws configure set default.region us-east-2
+
 # Push image to ECR
 ###################
 
