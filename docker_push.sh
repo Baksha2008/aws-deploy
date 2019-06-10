@@ -8,15 +8,6 @@ REGISTRY_URL=${AWS_ACCOUNT_ID}.dkr.ecr.${EB_REGION}.amazonaws.com
 SOURCE_IMAGE="test:latest"
 # using it as there will be 2 versions published
 TARGET_IMAGE="${REGISTRY_URL}/test:latest"
-# lets make sure we always have access to latest image
-TARGET_IMAGE_LATEST="${TARGET_IMAGE}:latest"
-TIMESTAMP=$(date '+%Y%m%d%H%M%S')
-# using datetime as part of a version for versioned image
-VERSION="${TIMESTAMP}-${TRAVIS_COMMIT}"
-# using specific version as well
-# it is useful if you want to reference this particular version
-# in additional commands like deployment of new Elasticbeanstalk version
-TARGET_IMAGE_VERSIONED="${TARGET_IMAGE}:${VERSION}"
 
 # making sure correct region is set
 aws configure set default.region ${EB_REGION}
@@ -31,5 +22,5 @@ $(aws ecr get-login --no-include-email --region us-east-2)
 
 
 # update latest version
-docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE_LATEST}
-docker push ${TARGET_IMAGE_LATEST}
+docker tag ${SOURCE_IMAGE} ${TARGET_IMAGE}
+docker push ${TARGET_IMAGE}
