@@ -20,6 +20,5 @@ jobs:
         echo test, and deploy your project.
         echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
         cat .env
-        cd ../
         ls -la
       
