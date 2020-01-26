@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with: ${{secrets.MY_SUPER_SECRET}}
+        with: BLA:${{secrets.MY_SUPER_SECRET}}
       - name: Decrypt large secret
         run: echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
         env:
