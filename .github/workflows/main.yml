@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with: 
-          LARGE_SECRET_PASSPHRASE:${{secrets.MY_SUPER_SECRET}}
+          MY_SUPER_SECRET:${{secrets.MY_SUPER_SECRET}}
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.MY_SUPER_SECRET }}
       - name: Test printing your secret (Remove this step in production)
