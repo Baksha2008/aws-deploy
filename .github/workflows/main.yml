@@ -16,8 +16,6 @@ jobs:
           super_secret: ${{ secrets.MY_SUPER_SECRET }}
       - uses: actions/checkout@v1
         with: BLA:${{secrets.MY_SUPER_SECRET}}
-      - name: Decrypt large secret
-        run: echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
         env:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.MY_SUPER_SECRET }}
       - name: Test printing your secret (Remove this step in production)
