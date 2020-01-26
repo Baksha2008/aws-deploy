@@ -30,3 +30,7 @@ jobs:
         echo test, and deploy your project.
         echo 'BLA=${{env.bla}}' > .env
         cat .env
+    - name: Run a multi-line script
+      uses: ./build.sh
+      with: 
+        MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }} 
