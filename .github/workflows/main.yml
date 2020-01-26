@@ -29,7 +29,4 @@ jobs:
           echo test, and deploy your project.
           echo 'BLA= ${{secrets.MY_SUPER_SECRET}}' > .env
           cat .env
-      - name: Run a multi-line script
-        uses: echo ' ${{secrets.MY_SUPER_SECRET}}' > .env
-        with: 
-          MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }} 
+ 
