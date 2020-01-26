@@ -1,6 +1,5 @@
 name: CI
-env: 
-  bla: ${{secrets.MY_SUPER_SECRET}}
+
 on:
   push:
     branches:
@@ -18,19 +17,19 @@ jobs:
       - name: Hello world action
 
         env: # Or as an environment variable
-          super_secret: ${{ env.MY_SUPER_SECRET }}
+          super_secret:  ${{secrets.MY_SUPER_SECRET}}
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
+          echo 'BLA=${{env.MY_SUPER_SECRET}}' > .env
           cat .env
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo 'BLA=${{env.bla}}' > .env
+          echo 'BLA= ${{secrets.MY_SUPER_SECRET}}' > .env
           cat .env
       - name: Run a multi-line script
-        uses: echo 'BLA=${{env.bla}}' > .env
+        uses: echo ' ${{secrets.MY_SUPER_SECRET}}' > .env
         with: 
           MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }} 
