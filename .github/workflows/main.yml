@@ -12,25 +12,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Hello world action
+      - uses: actions/checkout@v1
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Hello world action
 
-      env: # Or as an environment variable
-        super_secret: ${{ env.MY_SUPER_SECRET }}
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
-        cat .env
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
-        echo 'BLA=${{env.bla}}' > .env
-        cat .env
-    - name: Run a multi-line script
-      uses: ./build.sh
-      with: 
-        MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }} 
+        env: # Or as an environment variable
+          super_secret: ${{ env.MY_SUPER_SECRET }}
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          echo 'BLA=${{secrets.MY_SUPER_SECRET}}' > .env
+          cat .env
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          echo 'BLA=${{env.bla}}' > .env
+          cat .env
+      - name: Run a multi-line script
+        uses: ./build.sh
+        with: 
+          MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }} 
