@@ -28,5 +28,5 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo 'BLA=${{env.MY_SUPER_SECRET}}' > .env
+        echo 'BLA=${{env.bla}}' > .env
         cat .env
