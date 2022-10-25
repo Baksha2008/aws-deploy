@@ -1,11 +1,14 @@
 version: 2.1
-general:
-  branches:
-    only:
-      - master
-orbs:
-  cypress: cypress-io/cypress@2.2.0
+
+jobs:
+  hello-job:
+    machine:
+      image: ubuntu-2204:2022.07.1
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
+
 workflows:
-  build:
+  my-workflow:
     jobs:
-      - cypress/run
+      - hello-job
