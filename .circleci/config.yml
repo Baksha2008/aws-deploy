@@ -5,7 +5,7 @@ general:
     only:
       - master
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@2.2.0
 workflows:
   build:
     jobs:
